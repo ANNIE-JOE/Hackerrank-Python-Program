@@ -1,0 +1,11 @@
+import re
+S = input()
+k = input()
+pattern = re.compile(f"(?=({re.escape(k)}))")
+matches = list(pattern.finditer(S))
+if matches:
+    for match in matches:
+        start = match.start()
+        print(f"({start}, {start + len(k) - 1})")
+else:
+    print("(-1, -1)")
