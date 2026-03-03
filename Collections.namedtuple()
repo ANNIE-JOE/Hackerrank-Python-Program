@@ -1,0 +1,28 @@
+from collections import namedtuple
+def calculate_average_marks():
+    try:
+        n = int(input())
+    except ValueError:
+        return
+    columns = input().split()
+    try:
+        marks_index = columns.index('MARKS')
+    except ValueError:
+        return
+    Student = namedtuple('Student', columns)
+    total_marks = 0
+    for _ in range(n):
+        try:
+            student_data = input().split()
+            if len(student_data) != len(columns):
+                continue 
+            mark = int(student_data[marks_index])
+            total_marks += mark
+        except ValueError:
+            continue
+        except EOFError:
+            break 
+    if n > 0:
+        average = total_marks / n
+        print(f"{average:.2f}")
+calculate_average_marks()
