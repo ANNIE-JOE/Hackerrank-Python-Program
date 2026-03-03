@@ -1,0 +1,9 @@
+import re
+n = int(input())
+pattern = r"^[789]\d{9}$"
+for _ in range(n):
+    mobile_no = input().strip()
+    if re.match(pattern, mobile_no):
+        print("YES")
+    else:
+        print("NO")
