@@ -1,0 +1,6 @@
+num_stamps = int(input())
+distinct_countries = set()
+for _ in range(num_stamps):
+    country_name = input()
+    distinct_countries.add(country_name)
+print(len(distinct_countries))
