@@ -1,0 +1,6 @@
+s = input()
+l = sorted([c for c in s if c.islower()])
+u = sorted([c for c in s if c.isupper()])
+o = sorted([c for c in s if c.isdigit() and int(c) % 2 != 0])
+e = sorted([c for c in s if c.isdigit() and int(c) % 2 == 0])
+print("".join(l + u + o + e))
