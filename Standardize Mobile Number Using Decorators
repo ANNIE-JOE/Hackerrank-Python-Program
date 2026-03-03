@@ -1,0 +1,8 @@
+def wrapper(f):
+    def fun(l):
+        standardised_numbers = []
+        for num in l:
+            clean_num = num[-10:]
+            standardised_numbers.append(f"+91 {clean_num[:5]} {clean_num[5:]}")
+        return f(standardised_numbers)
+    return fun
