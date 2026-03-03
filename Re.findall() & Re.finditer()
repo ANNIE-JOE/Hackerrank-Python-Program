@@ -1,0 +1,6 @@
+import re
+vowels = "aeiou"
+consonants = "qwrtypsdfghjklzxcvbnm"
+pattern = rf"(?<=[{consonants}])([{vowels}]{{2,}})(?=[{consonants}])"
+s = input().strip()
+matches = re.findall(pattern, s, re.IGNORECASE)
