@@ -1,0 +1,12 @@
+cube = lambda x: x**3
+
+def fibonacci(n):
+    if n == 0:
+        return []
+    if n == 1:
+        return [0]
+    res = [0, 1]
+    for _ in range(2, n):
+        res.append(res[-1] + res[-2])
+    return res
+
