@@ -1,0 +1,5 @@
+import numpy
+n, m = map(int, input().split())
+matrix = numpy.array([input().split() for _ in range(n)], int)
+print(numpy.transpose(matrix))
+print(matrix.flatten())
