@@ -1,0 +1,7 @@
+n, x = map(int, input().split())
+subject_marks = []
+for _ in range(x):
+    subject_marks.append(list(map(float, input().split())))
+for student_scores in zip(*subject_marks):
+    avg = sum(student_scores) / x
+    print(f"{avg:.1f}")
