@@ -1,0 +1,24 @@
+from collections import defaultdict
+def solve_word_index_challenge():
+    try:
+        n_m_input = input().split()
+        if not n_m_input:
+            return   
+        n = int(n_m_input[0])
+        m = int(n_m_input[1])
+    except EOFError:
+        return
+    except ValueError:
+        return
+    group_a_indices = defaultdict(list)
+    for i in range(n):
+        word_a = input()
+        group_a_indices[word_a].append(i + 1)
+    for _ in range(m):
+        word_b = input()
+        if word_b in group_a_indices:
+            print(*(group_a_indices[word_b]))
+        else:
+            print("-1")
+if __name__ == "__main__":
+    solve_word_index_challenge()
