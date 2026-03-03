@@ -1,0 +1,6 @@
+_ = input() 
+english_set = set(map(int, input().split()))
+_ = input()  # Number of French students
+french_set = set(map(int, input().split()))
+result_set = english_set ^ french_set
+print(len(result_set))
