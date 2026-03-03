@@ -1,0 +1,24 @@
+import re
+def extract_hex_colors():
+    n = int(input())
+    is_inside_block = False
+    color_pattern = r'#(?:[a-fA-F0-9]{3}|[a-fA-F0-9]{6})\b'
+    for _ in range(n):
+        line = input()
+        if '{' in line:
+            is_inside_block = True
+            line = line.split('{')[1]      
+        if '}' in line:
+            content_before_closing = line.split('}')[0]
+            if is_inside_block:
+                matches = re.findall(color_pattern, content_before_closing)
+                for color in matches:
+                    print(color)
+            is_inside_block = False
+            continue
+        if is_inside_block:
+            matches = re.findall(color_pattern, line)
+            for color in matches:
+                print(color)
+if __name__ == "__main__":
+    extract_hex_colors()
