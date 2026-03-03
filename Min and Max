@@ -1,0 +1,18 @@
+import numpy
+def solve_task():
+    try:
+        n_m = list(map(int, input().split()))
+        if len(n_m) < 2:
+            remaining_input = list(map(int, input().split()))
+            n_m.extend(remaining_input)       
+        N, M = n_m[0], n_m[1]
+        my_array = numpy.array([input().split() for _ in range(N)], int)
+        min_along_axis1 = numpy.min(my_array, axis=1)
+        max_of_mins = numpy.max(min_along_axis1, axis=None) # axis=None finds max over flattened array
+        print(max_of_mins)
+    except EOFError:
+        pass
+    except ValueError:
+        pass
+if __name__ == "__main__":
+    solve_task()
