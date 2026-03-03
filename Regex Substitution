@@ -1,0 +1,13 @@
+import re
+def transform_logic(match):
+    symbol = match.group(0)
+    if symbol == "&&":
+        return "and"
+    return "or"
+n = int(input())
+for _ in range(n):
+    line = input()  
+    pattern = r"(?<= )(&&|\|\|)(?= )"
+    result = re.sub(pattern, transform_logic, line)
+    result = re.sub(pattern, transform_logic, result)   
+    print(result)
