@@ -1,0 +1,26 @@
+from collections import deque
+def solve():
+    try:
+        line1 = input().split()
+        if not line1: return
+        n = int(line1[0])
+        cubes = deque(map(int, input().split()))
+    except ValueError:
+        return
+    top = float('inf')  
+    for _ in range(n):
+        if cubes[0] >= cubes[-1]:
+            current = cubes.popleft()
+        else:
+            current = cubes.pop()
+        if current <= top:
+            top = current
+        else:
+            print("No")
+            return        
+    print("Yes")
+line = input().split()
+if line:
+    t = int(line[0])
+    for _ in range(t):
+        solve()
