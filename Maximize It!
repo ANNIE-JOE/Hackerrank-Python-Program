@@ -1,0 +1,15 @@
+from itertools import product
+def solve():
+    K, M = map(int, input().split())
+    lists = []
+    for _ in range(K):
+        row = map(int, input().split()[1:])
+        lists.append([x**2 for x in row])
+    max_s = 0
+    for combination in product(*lists):
+        current_s = sum(combination) % M
+        if current_s > max_s:
+            max_s = current_s            
+    print(max_s)
+if __name__ == "__main__":
+    solve()
