@@ -1,0 +1,25 @@
+from html.parser import HTMLParser
+import re
+
+class MyHTMLParser(HTMLParser):
+    def handle_starttag(self, tag, attrs):
+        print(tag)
+        for attr, value in attrs:
+            print(f"-> {attr} > {value}")
+    def handle_comment(self, data):
+        pass
+    def handle_endtag(self, tag):
+        pass
+
+    def handle_data(self, data):
+        pass
+if __name__ == '__main__':
+    parser = MyHTMLParser()
+    html_code = ""
+    try:
+        N = int(input())
+        for _ in range(N):
+            html_code += input().rstrip() + '\n'
+    except (ValueError, EOFError):
+        pass
+    parser.feed(html_code)
