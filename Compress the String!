@@ -1,0 +1,8 @@
+from itertools import groupby
+s = input()
+grouped_data = groupby(s, key=lambda x: x)
+output = []
+for key, group in grouped_data:
+    count = len(list(group)) 
+    output.append(f"({count}, {key})")
+print(" ".join(output))
