@@ -1,0 +1,26 @@
+import re
+
+def validate_credit_card(card_number):
+    format_pattern = r"^[456]\d{3}(?:-?\d{4}){3}$"
+    is_format_valid = re.match(format_pattern, card_number)
+
+    if not is_format_valid:
+        return "Invalid"
+    digits_only = card_number.replace("-", "")
+    consecutive_pattern = r"(\d)\1{3}"
+    has_consecutive_repeats = re.search(consecutive_pattern, digits_only)
+
+    if has_consecutive_repeats:
+        return "Invalid"
+    else:
+        return "Valid"
+if __name__ == '__main__':
+    try:
+        n = int(input().strip())
+        for _ in range(n):
+            card = input().strip()
+            print(validate_credit_card(card))
+    except EOFError:
+        pass
+    except ValueError:
+        pass
