@@ -1,0 +1,21 @@
+from itertools import permutations
+
+def solve():
+    try:
+        line = input().split()
+        if not line:
+            return
+
+        s = line[0]
+        r = int(line[1])
+        sorted_s = sorted(s)
+        perms = permutations(sorted_s, r)
+        for p in perms:
+            print("".join(p))
+    except ValueError:
+        pass
+    except IndexError:
+        pass
+
+if __name__ == "__main__":
+    solve()
