@@ -1,0 +1,13 @@
+from itertools import combinations
+N = int(input())
+letters = input().split()
+K = int(input())
+all_combinations = list(combinations(range(N), K))
+a_indices = [i for i, letter in enumerate(letters) if letter == 'a']
+count = 0
+for combo in all_combinations:
+    for index in combo:
+        if index in a_indices:
+            count += 1
+            break
+print(f"{count / len(all_combinations):.3f}")
