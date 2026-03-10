@@ -1,0 +1,8 @@
+import collections
+K = int(input())
+rooms = list(map(int, input().split()))
+room_counts = collections.Counter(rooms)
+for room, count in room_counts.items():
+    if count == 1:
+        print(room)
+        break
