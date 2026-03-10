@@ -1,0 +1,15 @@
+import re
+def validate_uid(uid):
+    if not re.fullmatch(r'[a-zA-Z0-9]{10}', uid):
+        return 'Invalid'
+    if len(set(uid)) != 10:
+        return 'Invalid'
+    if not re.search(r'(?:[A-Z].*){2}', uid):
+        return 'Invalid'
+    if not re.search(r'(?:[0-9].*){3}', uid):
+        return 'Invalid'
+    return 'Valid'
+t = int(input())
+for _ in range(t):
+    employee_uid = input()
+    print(validate_uid(employee_uid))
