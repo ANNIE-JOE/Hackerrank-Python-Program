@@ -1,0 +1,11 @@
+def mutate_string(string, position, character):
+    l = list(string)
+    l[position] = character
+    return "".join(l)
+def mutate_string_slice(string, position, character):
+    return string[:position] + character + string[position+1:]
+s = "abracadabra"
+pos = 5
+char = 'k'
+modified_s_list = mutate_string(s, pos, char)
+modified_s_slice = mutate_string_slice(s, pos, char)
