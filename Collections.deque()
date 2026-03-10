@@ -1,0 +1,13 @@
+from collections import deque
+import sys
+n = int(sys.stdin.readline())
+d = deque()
+for _ in range(n):
+    line = sys.stdin.readline().split()
+    command = line[0]
+    args = line[1:]
+    if args:
+        getattr(d, command)(int(args[0]))
+    else:
+        getattr(d, command)()
+print(*(d))
