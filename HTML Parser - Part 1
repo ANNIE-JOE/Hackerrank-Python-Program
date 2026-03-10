@@ -1,0 +1,34 @@
+from html.parser import HTMLParser
+
+class MyHTMLParser(HTMLParser):
+    def handle_starttag(self, tag, attrs):
+        print(f"Start : {tag}")
+        self._print_attrs(attrs)
+
+    def handle_endtag(self, tag):
+        print(f"End   : {tag}")
+
+    def handle_startendtag(self, tag, attrs):
+        print(f"Empty : {tag}")
+        self._print_attrs(attrs)
+        
+    def handle_comment(self, data):
+        pass
+    def _print_attrs(self, attrs):
+        for attr_name, attr_value in attrs:
+            value = attr_value if attr_value is not None else "None"
+            print(f"-> {attr_name} > {value}")
+
+parser = MyHTMLParser()
+
+if __name__ == '__main__':
+    html_code = ""
+    try:
+        num_lines = int(input())
+        for _ in range(num_lines):
+            html_code += input().rstrip() + '\n'
+    except EOFError:
+        pass
+    except ValueError:
+        pass
+    parser.feed(html_code)
